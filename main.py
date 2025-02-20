@@ -18,7 +18,17 @@ genai.configure(api_key=apkikey)
 
 # Interface Streamlit
 st.title("📚 Sci-Calc : Scientifique Calculator basée sur l'IA 🇨🇮")
-
+st.write("## 📌 Guide des symboles et opérations")
+st.markdown("""
+- **Puissance** : `x**n` (ex: `x**3` pour x³)
+- **Multiplication** : `*` (ex: `2*x`)
+- **Division** : `/` (ex: `x/2`)
+- **Addition** : `+` (ex: `x + 5`)
+- **Soustraction** : `-` (ex: `x - 3`)
+- **Exponentielle** : `exp(x)` pour e^x
+- **Logarithme** : `log(x)`
+- **Sinus, Cosinus, Tangente** : `sin(x)`, `cos(x)`, `tan(x)`
+""")
 st.write("## ✍️ Entrez une expression mathématique")
 user_input = st.text_input("Expression :", "x**3 + 2*x**2 + x")
 

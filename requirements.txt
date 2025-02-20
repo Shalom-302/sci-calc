@@ -1,7 +1,6 @@
 sympy
 streamlit 
 watchdog
-matplotlib
 langchain 
 langchain_google_genai
 google-generativeai 
