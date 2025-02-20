@@ -17,7 +17,7 @@ apkikey = os.getenv("GOOGLE_API_KEY")
 genai.configure(api_key=apkikey)
 
 # Interface Streamlit
-st.title("📚 Sci-Calc : Révolutionner l'éducation avec l'IA 🇨🇮")
+st.title("📚 Sci-Calc : Scientifique Calculator basée sur l'IA 🇨🇮")
 
 st.write("## ✍️ Entrez une expression mathématique")
 user_input = st.text_input("Expression :", "x**3 + 2*x**2 + x")
@@ -63,18 +63,18 @@ try:
         "Décompose en **plusieurs étapes conceptuelles** avec une approche progressive."
     )
 ])
-    st.write("Réponse du Modèle:")
+    if st.button("Generer une explication", type="primary"):
+        st.write("### Réponse du Modèle:")
+        with st.spinner("Génération de l'explication..."):  # ✅ Ajout des parenthèses
+            yo = llm.invoke(prompt.format(expression=user_input))  # ✅ Appel correct de Langchain
+        response = yo
+        st.success("Done!")  # ✅ Succès après exécution
 
-    with st.spinner("Génération de la réponse..."):  # ✅ Ajout des parenthèses
-        yo = llm.invoke(prompt.format(expression=user_input))  # ✅ Appel correct de Langchain
-
-    st.success("Done!")  # ✅ Succès après exécution
-
-    response = yo  # ✅ Stockage de la réponse
+      # ✅ Stockage de la réponse
 
     
     # Affichage de la démonstration
-    st.markdown(response.content)
+        st.markdown(response.content)
     # Création de la plage de valeurs pour le tracé
     x_vals = np.linspace(-10, 10, 400)
     
